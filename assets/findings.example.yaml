@@ -1,0 +1,70 @@
+# findings.yaml — canonical engagement record
+# Consumed by scripts/report.py
+# One entry per finding. Keep evidence paths relative to the engagement directory.
+
+engagement:
+  client: "Acme Corp"
+  name: "External Web Application Assessment"
+  target: "app.acme.com"
+  start: "2026-11-01"
+  end: "2026-11-14"
+  tester: "operator"
+  classification: "Confidential"
+
+findings:
+  - id: F-01
+    title: "SQL Injection in /api/v1/report?id="
+    severity: critical
+    cvss: 9.8
+    vector: "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
+    asset: "https://app.acme.com"
+    component: "reports.php:42, parameter id"
+    attack:
+      - T1190
+    summary: >
+      User-controlled id is concatenated into a SQL query without
+      parameterization, allowing arbitrary query execution as the
+      application database user.
+    preconditions:
+      - "Authenticated as any role"
+    steps:
+      - "Authenticate and capture the session cookie"
+      - "Send poc/F-01/request.txt"
+      - "Observe version() output in the response"
+    impact: >
+      Full read/write access to the customer database including PII for
+      approximately 40,000 users.
+    chain: "Combined with F-04 this yields OS-level command execution."
+    remediation: "Use parameterized queries. Add a WAF rule as a stopgap."
+    references:
+      - "https://owasp.org/Top10/A03_2021-Injection/"
+      - "CWE-89"
+    evidence:
+      - poc/F-01/request.txt
+      - poc/F-01/response.txt
+    status: open
+
+  - id: F-02
+    title: "IDOR on invoice PDF endpoint"
+    severity: high
+    cvss: 7.5
+    vector: "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N"
+    asset: "https://app.acme.com/api/invoice/{id}/pdf"
+    component: "invoice controller"
+    attack:
+      - T1190
+    summary: "Any authenticated user can retrieve another tenant's invoice PDF by incrementing the numeric id."
+    preconditions:
+      - "Valid low-privilege account"
+    steps:
+      - "Log in as user A and download invoice 1001"
+      - "Request invoice 1002 with user A's cookie"
+      - "PDF for user B is returned"
+    impact: "Cross-tenant disclosure of billing data, addresses and tax identifiers."
+    remediation: "Authorize object access against the session tenant; use opaque identifiers."
+    references:
+      - "CWE-639"
+    evidence:
+      - poc/F-02/request.txt
+      - poc/F-02/response.pdf
+    status: open

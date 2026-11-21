@@ -1,0 +1,61 @@
+# Engagement Scope — <CLIENT> — <YYYY-MM-DD>
+
+## Authorization
+
+| Field | Value |
+| --- | --- |
+| Source | <contract ID / bounty program URL / written approval> |
+| Authorized by | <name, role> |
+| Reference | <contract number / program handle> |
+| Validity | <start date> → <end date> |
+| Signed document | <path to PDF in engagement dir> |
+
+## In scope
+
+| Type | Value | Notes |
+| --- | --- | --- |
+| Domain | `*.target.com` | wildcard included |
+| CIDR | `10.10.10.0/24` | internal network |
+| Application | `com.target.app` | build `1.2.3` only |
+| API | `https://api.target.com/v2` | |
+| Cloud account | AWS `123456789012` | read-only enumeration |
+
+## Out of scope
+
+- `status.target.com` — third-party hosted
+- Any `*.target.co.uk` — separate legal entity
+- Denial of service, stress testing, load testing
+- Social engineering of staff
+- Physical access attempts
+- Third-party SaaS integrations
+
+## Rules of engagement
+
+| Rule | Value |
+| --- | --- |
+| Test window | <dates, hours, timezone> |
+| Max request rate | 10 req/s discovery, 1 at a time exploitation |
+| Prohibited techniques | DoS, destructive payloads, bulk data download |
+| Data handling | Proof only; no PII retention; delete by <date> |
+| Notification | Critical findings within <N> hours |
+| Source IPs | <list> — allowlist these |
+| Deconfliction | <contact, channel> |
+
+## Contacts
+
+| Role | Name | Channel |
+| --- | --- | --- |
+| Engagement lead | | |
+| Technical contact | | |
+| Emergency / stop | | |
+
+## Emergency stop
+
+Send `STOP` to <channel>. All testing halts immediately; no cleanup without written approval.
+
+## Sign-off
+
+| Role | Name | Date |
+| --- | --- | --- |
+| Client approver | | |
+| Tester | | |

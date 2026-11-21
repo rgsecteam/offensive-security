@@ -1,0 +1,81 @@
+# Penetration Test Report — <CLIENT>
+
+**Engagement:** <name>
+**Period:** <start> → <end>
+**Report version:** 1.0
+**Classification:** Confidential
+
+---
+
+## 1. Executive summary
+
+<One page. No jargon. What was tested, what was found, what it means for the business, what to do first.>
+
+| Severity | Count |
+| --- | --- |
+| Critical | |
+| High | |
+| Medium | |
+| Low | |
+| Informational | |
+
+**Top three risks**
+
+1. <risk> — <business consequence>
+2. <risk> — <business consequence>
+3. <risk> — <business consequence>
+
+## 2. Scope and methodology
+
+| Item | Detail |
+| --- | --- |
+| In scope | |
+| Out of scope | |
+| Testing window | |
+| Methodology | PTES / OWASP WSTG / MITRE ATT&CK |
+| Tools | |
+| Deviations from RoE | <none / describe with approval reference> |
+
+## 3. Attack narrative
+
+<Chained story from initial access to objective. One diagram.>
+
+```mermaid
+flowchart LR
+  A[Internet] --> B[Web app]
+  B --> C[Database]
+  C --> D[Domain user]
+  D --> E[Domain admin]
+```
+
+## 4. Findings
+
+### 4.1 Critical
+
+#### F-01 — <title>
+<full finding per finding.md.template>
+
+### 4.2 High
+### 4.3 Medium
+### 4.4 Low
+### 4.5 Informational
+
+## 5. Remediation roadmap
+
+| Priority | Finding | Action | Effort | Owner |
+| --- | --- | --- | --- | --- |
+| 1 | F-01 | | S/M/L | |
+
+## 6. Retest
+
+| Finding | Original severity | Retest date | Result | Notes |
+| --- | --- | --- | --- | --- |
+
+## Appendix A — Evidence index
+
+| Finding | File | Description |
+| --- | --- | --- |
+
+## Appendix B — Tool output
+
+## Appendix C — Glossary

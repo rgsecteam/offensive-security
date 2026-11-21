@@ -1,0 +1,59 @@
+# F-XX — <TITLE>
+
+**Severity:** Critical | High | Medium | Low | Info
+**CVSS 3.1:** <score> — `CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H`
+**Asset:** <https://target.com/path>
+**Component:** <file, endpoint, parameter>
+**Status:** Open | Fixed | Retest-pass
+**ATT&CK:** <T1190, T1078, ...>
+
+## Summary
+
+<2–4 sentences. What the flaw is, where it lives, what it allows.>
+
+## Preconditions
+
+- <authentication level required>
+- <network position>
+- <configuration assumed>
+
+## Steps to reproduce
+
+1. <exact step>
+2. <exact step>
+3. <exact step>
+
+```http
+<raw request>
+```
+
+Expected: <safe behaviour>
+Actual: <observed behaviour>
+
+## Evidence
+
+- `poc/F-XX/request.txt`
+- `poc/F-XX/response.txt`
+- `poc/F-XX/screenshot.png`
+
+## Impact
+
+<Business impact. What data, what access, what blast radius. Quantify where possible.>
+
+## Chain
+
+<How this combines with other findings. "Alone: medium. With F-YY: account takeover.">
+
+## Remediation
+
+<Specific fix. Include the secure code pattern or config change.>
+
+## Verification
+
+<How the client proves it is fixed. Exact retest step.>
+
+## References
+
+- OWASP: <link>
+- CWE-<id>
+- Vendor advisory: <link>
