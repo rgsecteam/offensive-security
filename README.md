@@ -172,9 +172,4 @@ MIT — see [LICENSE](LICENSE).
 
 Issues and pull requests are welcome. Useful contributions:
 
-- A reference file for a domain that is missing
-- A playbook for an engagement type not covered
-- A correction to a command that no longer works against current tooling
-- A bug in `scripts/`
-
 Keep the style: command-level, no filler, no moralizing inside the technical content, and every claim reproducible.
